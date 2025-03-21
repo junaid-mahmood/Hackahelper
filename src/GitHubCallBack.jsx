@@ -29,16 +29,26 @@ const GitHubCallback = () => {
   }, [location]);
 
   if (error) {
-    return <div>{error}</div>;
+    return (
+      <div className="hero-content">
+        <h1 className="app-title">Authentication Error</h1>
+        <p className="hero-subtitle">{error}</p>
+      </div>
+    );
   }
 
   if (!user) {
-    return <div>Loading...</div>;
+    return (
+      <div className="hero-content">
+        <h1 className="app-title">Loading...</h1>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h1>Hello, {user.login}!</h1>
+    <div className="hero-content">
+      <h1 className="app-title">Welcome!</h1>
+      <p className="hero-subtitle">Hello, {user.login}!</p>
     </div>
   );
 };
